@@ -6,7 +6,8 @@ export default class RoomServices extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
 
-            headerTitle: "Solicitação de Serviços",
+            headerTitle: "Sala",
+           
             headerRight: (
                 <View style={{ width: 40, height: 40 }}></View>
             ),

@@ -1,10 +1,11 @@
-import { createAppContainer, createStackNavigator } from "react-navigation";
+import { createAppContainer, createStackNavigator, createDrawerNavigator } from "react-navigation";
 
 import Home from './Home';
 import Scanner from './Scanner';
 import QRCodeData from './QRCodeData';
 import RoomServices from './RoomServices'
 import BathroomServices from './BathroomServices'
+import Slider from './Slider'
 
 const homeStack = createStackNavigator(
     {
@@ -12,25 +13,30 @@ const homeStack = createStackNavigator(
         Scanner_Screen: Scanner,
         QRCodeData: QRCodeData,
         BathroomServices_Screen: BathroomServices,
-        RoomServices_Screen: RoomServices
+        RoomServices_Screen: RoomServices,
+        Slider: Slider
     }, {
         defaultNavigationOptions: {
-            headerTintColor: '#FFFFFF',
             headerStyle: {
-                backgroundColor: '#00aed1',
+                backgroundColor: '#FFFFFF',
+                height: 50,
+                borderBottomWidth: 1,
+                borderColor: "#cdcdcd",
+                elevation: 0
+
             },
             headerTitleStyle: {
                 textAlign: "center",
                 justifyContent: "center",
-                fontSize: 26,
+                fontSize: 24,
                 alignItems: "center",
                 flex: 1,
                 alignSelf: "center",
-                fontWeight: 'bold'
             },
         }
     }
 );
+
 
 const homeContainer = createAppContainer(homeStack);
 
