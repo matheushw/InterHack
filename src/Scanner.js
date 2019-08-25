@@ -7,7 +7,9 @@ export default class Scanner extends Component {
         return {
 
             headerTitle: "Scan QR",
-
+            headerRight: (
+                <View style={{ width: 40, height: 40 }}></View>
+            ),
         }
     };
 
@@ -18,14 +20,13 @@ export default class Scanner extends Component {
         }
 
         if (e.data.charAt(0) == 'R'){
-            this.props.navigation.navigate("Home_Screen")
+            this.props.navigation.navigate("RoomServices_Screen")
         }
     };
     
     render() {
         return (
             <View style={styles.container}>
-                <Text>Esse é o Scanner</Text>
                 <QRCodeScanner
                     onRead = {this.onSuccess}
                     showMarker = {true}
@@ -47,6 +48,6 @@ const styles = StyleSheet.create ({
     button: {
         width: 200,
         height: 50,
-        backgroundColor: '#4287f5'
+        backgroundColor: '#00aed1'
     }
 });

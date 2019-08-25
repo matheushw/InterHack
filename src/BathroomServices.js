@@ -1,42 +1,40 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image} from 'react-native';
 
 export default class BathroomServices extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
 
-            headerTitle: "Solicitação de Serviços",
-
+            headerTitle: "Banheiro",
+            headerRight: (
+                <View style={{ width: 40, height: 40 }}></View>
+            ),
         }
     };
 
     render() {
         return (
-            <View style ={{flex: 1}}>
-                <View style={styles.container}>
-                    <View style={{ flex: 3 }}>
-                        <Text> Bora no banheiro</Text>
-                    </View>
-                </View>
-                <View style={{ flex: 1, alignItems: "center" }}>
+            <View style={{ flex: 1 }}>
+                <View style={{ alignItems: "center", justifyContent: "space-around" }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Home_Screen')}
                         style={styles.button}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15 }}>Papel Higiênico</Text>
+                        <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/papel.png')} />
                     </TouchableOpacity>
-                
+
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Home_Screen')}
                         style={styles.button}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15 }}>Papel para secar as mãos</Text>
+                        <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/papel_toalha.png')} />
+                        
                     </TouchableOpacity>
-               
+
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Home_Screen')}
                         style={styles.button}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 15 }}>Sabonete Líquido</Text>
+                        <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/sabonete.png')} />
                     </TouchableOpacity>
-                </View>
+                </View>  
             </View>
         );
     }
@@ -59,10 +57,12 @@ const styles = StyleSheet.create({
         margin: 10
     },
     button: {
-        width: 200,
-        height: 45,
-        backgroundColor: '#00bde3',
+        width: 150,
+        height: 150,
+        backgroundColor: '#00aed1',
         borderRadius: 15,
+        borderRadius: 100,
+        marginTop: 45,
         alignItems: "center",
         justifyContent: "center"
     }
