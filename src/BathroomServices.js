@@ -8,7 +8,7 @@ export default class BathroomServices extends Component {
         super(props);
 
         this.state = {
-            sala: ''
+            sala: this.props.navigation.state.params.sala
         };
 
         this.cadastrarHigienico = this.cadastrarHigienico.bind(this);
@@ -59,6 +59,7 @@ export default class BathroomServices extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+                
                 <View style={{ alignItems: "center", justifyContent: "space-around" }}>
                     <TouchableOpacity
                         onPress={this.cadastrarHigienico }

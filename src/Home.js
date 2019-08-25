@@ -59,11 +59,6 @@ export default class Home extends Component {
                         style={styles.button}>
                         <Text style={{ color: "#FFFFFF", fontSize: 20 }}>Escanear QR</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Slider')}
-                        style={styles.button}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 20 }}>Abrir</Text>
-                    </TouchableOpacity>
                 </View>
 
             </View>

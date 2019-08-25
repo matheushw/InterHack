@@ -11,19 +11,6 @@ export default class Slider extends Component {
         }
     };
 
-    _renderNextButton = () => {
-        return (
-          <View style={styles.buttonCircle}>
-            <Ionicons
-              name="md-arrow-round-forward"
-              color="rgba(255, 255, 255, .9)"
-              size={24}
-              style={{ backgroundColor: 'transparent' }}
-            />
-          </View>
-        );
-      };
-
     _onDone = () => {
         // After user finished the intro slides. Show real app through
         // navigation or simply by controlling state
@@ -64,16 +51,7 @@ export default class Slider extends Component {
                         //Handler for the done On last slide
                         showSkipButton={true}
                         onSkip={this._onSkip}
-                        renderNextButton={this._renderNextButton}
-                    >
-
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Home_Screen')}
-                        style={style.button}>
-                        <Text style={{ color: "#FFFFFF", fontSize: 20 }}>Abrir</Text>
-                    </TouchableOpacity>
-
-                    </AppIntroSlider>
+                    />
             );
         }
     }
@@ -152,3 +130,4 @@ const slides = [
         backgroundColor: '#01a1c0',
     }
 ];
+

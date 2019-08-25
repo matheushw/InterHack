@@ -3,9 +3,11 @@ import { createAppContainer, createStackNavigator, createDrawerNavigator } from 
 import Home from './Home';
 import Scanner from './Scanner';
 import QRCodeData from './QRCodeData';
-import RoomServices from './RoomServices'
-import BathroomServices from './BathroomServices'
-import Slider from './Slider'
+import RoomServices from './RoomServices';
+import BathroomServices from './BathroomServices';
+import Slider from './Slider';
+// import Programa from './Programa';
+
 
 const homeStack = createStackNavigator(
     {
@@ -15,6 +17,7 @@ const homeStack = createStackNavigator(
         BathroomServices_Screen: BathroomServices,
         RoomServices_Screen: RoomServices,
         Slider: Slider
+        // Programa: Programa
     }, {
         defaultNavigationOptions: {
             headerStyle: {

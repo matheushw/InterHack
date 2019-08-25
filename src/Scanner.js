@@ -15,12 +15,16 @@ export default class Scanner extends Component {
 
     onSuccess = async e => {
 
+        let sala = e.data.charAt(1);
+        sala += e.data.charAt(2);
+        sala += e.data.charAt(3);
+
         if (e.data.charAt(0) == 'B'){
-            this.props.navigation.navigate("BathroomServices_Screen")
+            this.props.navigation.navigate("BathroomServices_Screen", { sala },)
         }
 
         if (e.data.charAt(0) == 'R'){
-            this.props.navigation.navigate("RoomServices_Screen")
+            this.props.navigation.navigate("RoomServices_Screen", { sala },)
         }
     };
     
