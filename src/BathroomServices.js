@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image} from 'react-native';
-//import firebase from 'firebase';
+import Firebase from './firebase'
 
 export default class BathroomServices extends Component {
 
@@ -10,6 +10,40 @@ export default class BathroomServices extends Component {
         this.state = {
             sala: ''
         };
+
+        this.cadastrarHigienico = this.cadastrarHigienico.bind(this);
+        this.cadastrarMaos = this.cadastrarMaos.bind(this);
+        this.cadastrarSabonete = this.cadastrarSabonete.bind(this);
+    }  
+    
+    cadastrarHigienico() {
+        let solicitacao = Firebase.database().ref('banheiro/higienico');
+        let chave = solicitacao.push().key;
+        solicitacao.child(chave).set({
+           sala: this.state.sala
+        });
+        alert("Solicitação realizada com sucesso!");
+        this.props.navigation.navigate('Home_Screen')
+    }
+
+    cadastrarMaos() {
+        let solicitacao = Firebase.database().ref('banheiro/maos');
+        let chave = solicitacao.push().key;
+        solicitacao.child(chave).set({
+           sala: this.state.sala
+        });
+        alert("Solicitação realizada com sucesso!");
+        this.props.navigation.navigate('Home_Screen')
+    }
+
+    cadastrarSabonete() {
+        let solicitacao = Firebase.database().ref('banheiro/sabonete');
+        let chave = solicitacao.push().key;
+        solicitacao.child(chave).set({
+           sala: this.state.sala
+        });
+        alert("Solicitação realizada com sucesso!");
+        this.props.navigation.navigate('Home_Screen')
     }
 
     static navigationOptions = ({ navigation }) => {
@@ -27,44 +61,20 @@ export default class BathroomServices extends Component {
             <View style={{ flex: 1 }}>
                 <View style={{ alignItems: "center", justifyContent: "space-around" }}>
                     <TouchableOpacity
-                        onPress={() => 
-                            //let solicitacao = firebase.database().ref('banheiro/higienico');
-                            //let chave = solicitacao.push().key;
-                            //solicitacao.child(chave).set({
-                            //    sala: this.state.sala
-                            //});
-                            //alert("Solicitação realizada com sucesso!");
-                            this.props.navigation.navigate('Home_Screen')
-                        }
+                        onPress={this.cadastrarHigienico }
                         style={styles.button}>
                         <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/papel.png')} />
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                        onPress={() => 
-                            //let solicitacao = firebase.database().ref('banheiro/maos');
-                            //let chave = solicitacao.push().key;
-                            //solicitacao.child(chave).set({
-                            //    sala: this.state.sala
-                            //});
-                            //alert("Solicitação realizada com sucesso!");
-                            this.props.navigation.navigate('Home_Screen')
-                        }
+                        onPress={this.cadastrarMaos }
                         style={styles.button}>
                         <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/papel_toalha.png')} />
                         
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                        onPress={() => 
-                            //let solicitacao = firebase.database().ref('banheiro/sabonete');
-                            //let chave = solicitacao.push().key;
-                            //solicitacao.child(chave).set({
-                            //    sala: this.state.sala
-                            //});
-                            //alert("Solicitação realizada com sucesso!");
-                            this.props.navigation.navigate('Home_Screen')
-                        }
+                        onPress={this.cadastrarSabonete }
                         style={styles.button}>
                         <Image style={{ width: 80, height: 80}} source= {require('qrCodeApp/src/images/sabonete.png')} />
                     </TouchableOpacity>
